@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Exemplo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul-escuro: #003366;
+      --roxo-principal: #7E31C2;
+      --azul-médio: #434DA1;
+      --azul-claro: #3188E0;
+      --vinho: #861640;
+      --cinza: #231f20;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    h1, h2, h3, header h1 {
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    body, p, nav a, footer, .carousel-caption {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    body {
+      margin: 0;
+      background-image: url(https://oburrozurra.com/wp-content/uploads/2023/03/cianotipia_folha-2-733x1024.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    
+    body
+    header {
+        background-color: var(--azul-escuro);
+        font-weight: lighter;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+    header h1{
+        font-family: 'Forum', Georgia, 'Times New Roman', serif;
+        font-size: 3rem;
+        font-style: italic;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    nav {
+      background-color: #b6dbff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--cinza);
+      text-decoration: none;
+      font-weight: bold;
+      transition: all .2s ease-in-out;
+    }
+
+    nav a :hover{
+      background-color: white;
+      transform: scale(0.5);
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2  {
+        font-family: 'Forum', Georgia, 'Times New Roman', serif;
+        font-size: 2rem;
+        font-style: italic;
+    }
+
+    section img {
+      width: 100%;
+      margin: 1rem 0;
+      border-radius: 10px;
+    }
+
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .carousel-slide {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .mosaic img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    
+    .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel-controls button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.carousel-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .team img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    .pronomes {
+        size: 0.5rem;
+        font-style: italic;
+        color: #c9c9c9;
+    }
+    footer {
+      background-color: var(--azul-escuro);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .carousel {
+        height: 200px;
+      }
+
+      .carousel-slide img {
+        height: 200px;
+      }
+
+      .team img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        gap: 0.5rem;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cerradotipia</h1>
+    <img src="logo_unb.svg" alt="Logo UnB">
+  </header>
+
+  <nav>
+    <a href="#principal">Principal</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#processo">Processo</a>
+    <a href="#sobre">Quem somos?</a>
+  </nav>
+
+  <section id="principal">
+    <h2>Principal</h2>
+    <p><b>A luz do Cerrado revela formas esquecidas:</b> exploramos a cianotipia como poesia visual — onde o tempo, o sol e as plantas nativas escrevem imagens azuis que falam da memória e da resistência do cerrado.</p>
+    <video autoplay muted loop playsinline style="width: 100%; border-radius: 10px;">
+      <source src="VIDEO CIANO V1.mp4" type="video/mp4">
+    </video>
+  </section>
+
+ <!-- ... restante do código permanece igual até a seção #galeria -->
+
+<section id="galeria">
+    <h2>Galeria</h2>
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
+        <div class="carousel-slide">
+          <img src="IMG_5331.jpg" alt="1">
+          <div class="carousel-caption">Legenda 1</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="IMG_5332.jpg" alt="2">
+          <div class="carousel-caption">Legenda 2</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="IMG_5333.jpg" alt="3">
+          <div class="carousel-caption">Legenda 3</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="IMG_5334.jpg" alt="3">
+          <div class="carousel-caption">Legenda 3</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="IMG_5335.jpg" alt="3">
+          <div class="carousel-caption">Legenda 3</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="IMG_5336.jpg" alt="3">
+          <div class="carousel-caption">Legenda 3</div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+    <div class="mosaic">
+      <img src="IMG_5336.jpg" alt="mosaico">
+      <img src="IMG_5335.jpg" alt="mosaico">
+      <img src="IMG_5331.jpg" alt="mosaico">
+      <img src="IMG_5332.jpg" alt="mosaico">
+    </div>
+  </section>
+  
+
+<!--aaa  <section id="processo">
+    <h2>Processo</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <img src="processo1.jpg" alt="Processo 1">
+    <p>Donec sollicitudin, velit eu cursus dapibus...</p>
+    <img src="processo2.jpg" alt="Processo 2">
+    <p>Praesent et orci ut justo volutpat rhoncus...</p>
+  </section>-->
+
+  <section id="sobre">
+    <h2>Quem somos?</h2>
+    <div class="team">
+      <div>
+        <img src="hugo.jpeg" alt="Hugo">
+        <h3>Hugo Von Behr</h3>
+        <p class="pronomes">ele/dele</p>
+        <p>Estudante de Comunicação Organizacional e também fotórgrafo.</p>
+      </div>
+      <div>
+        <img src="kleber.jpg" alt="Kleber">
+        <h3>Kleber Lucas</h3>
+        <p class="pronomes">ele/dele</p>
+        <p>Estudo Comunicação e também sou videomaker :D </p>
+      </div>
+      <div>
+        <img src="luigi.jpg" alt="Luigi">
+        <h3>Luigi M Giavara</h3>
+        <p class="pronomes">ele/elu</p>
+        <p>Estudante de ComOrg e gosto de desenvolver sites 👨‍💻</p>
+      </div>
+      <div>
+        <img src="mark.jpg" alt="Mark">
+        <h3>Mark Vaz</h3>
+        <p class="pronomes">qualquer pronome</p>
+        <p>Estudante de Comunicação e entusiasta de cinema.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cerradotipia. Todos os direitos reservados.</p>
+    </br>
+    <p>Feito com ❤️ para obtenção de menção parcial na disciplina de Planejamento e Gestão Visual Web</p>
+    <p>Departamento de Comunicação Organizacional</p>
+    <p>Faculdade de Comunicação</p>
+    <p>Universidade de Brasília</p>
+  </footer>
+
+    <script>
+    const carousel = document.getElementById('carousel');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let index = 0;
+    let autoPlayInterval;
+    let autoPaused = false;
+  
+    function updateCarousel() {
+      slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(-${index * 100}%)`;
+      });
+    }
+  
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      updateCarousel();
+    }
+  
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+  
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 3000);
+    }
+  
+    function pauseAutoPlay() {
+      clearInterval(autoPlayInterval);
+      if (!autoPaused) {
+        autoPaused = true;
+        setTimeout(() => {
+          autoPaused = false;
+          startAutoPlay();
+        }, 10000); // pausa por 10s
+      }
+    }
+  
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      pauseAutoPlay();
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      pauseAutoPlay();
+    });
+  
+    startAutoPlay();
+  </script>  
+</body>
+</html>
